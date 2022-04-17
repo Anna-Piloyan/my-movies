@@ -1,0 +1,78 @@
+
+{block content}
+<style>
+input{
+  border-radius: 5px;
+  width: 320px;
+}
+.align{    
+  background-color: lightgreen;
+  border-radius: 7px;
+  width: 400px;
+  padding: 40px 20px 30px 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto     
+}
+.center{
+  margin-bottom: 200px;
+  font-family: Times;
+} 
+div h6{
+  text-align:center;
+  font-size: 25px;     
+}  
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Movies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/www/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":User:Home:">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":Movie:Movie:">Catalog</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" n:href=":Creator:Creator:">Creators</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav><br/><br/>
+<div class="center">
+<div class="align">
+<h6>Registration</h6>
+   {form addForm}
+  {label name}
+    {input name}
+  {label email}
+    {input email}
+  {label password}
+    {input password}<br/><br/>
+ {input submit}
+{/form}
+  </div>
+   </div>
+
+<footer class="bg-dark text-center text-white">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">app-free-movies.com</a>
+  </div>
+ 
+</footer>
+
+
+{/block}

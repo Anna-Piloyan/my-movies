@@ -1,0 +1,59 @@
+
+{block content}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Movies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/www/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":User:Home:">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":Movie:Movie:">Catalog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":Creator:Creator:">Creators</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+<h2>Welcome to Movie Site!</h2>
+<div class="row row-cols-1 row-cols-md-6 g-4">
+ {foreach $list as $item}
+
+  <div class="col">
+    <div class="card h-100 div">
+      <img src= '../../../../www/images/{$item->image}' class="card-img-top img-main"  alt="poster">
+      <div class="card-body">
+        <h5 class="card-title"><b>{$item->name}</b></h5>
+        <p class="card-text">{$item->year}</p>
+         <p class="card-text"><b>{$item->genre} </b> {$item->length} min.</span></p>
+           <p class="card-text">{$item->creatorName} {$item->surname}</p>
+           <p class="card-text">{$item->country}</p>
+      </div>
+    </div>
+  </div>
+  {/foreach}
+  </div><br/><br/>
+<footer class="bg-dark text-center text-white">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">app-free-movies.com</a>
+  </div>
+ 
+</footer>
+
+ 
+{/block}

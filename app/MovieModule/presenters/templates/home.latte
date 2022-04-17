@@ -1,0 +1,139 @@
+{block content}
+<style>
+.des{
+  margin-left:50px;
+  font-family: Times;
+  background-color: lightgreen;
+  border-radius: 7px;
+  width:280px;
+  padding:20px;
+  margin-top:15px;
+}
+.t-design{
+  margin-left:20px;
+  font-family: Times;
+  background-color: lightgreen;
+  border-radius: 7px;
+  padding:20px;
+  margin:20px 100px 0px 0px;
+  width:950px;
+ 
+}
+input{
+  width:220px;
+  border-radius: 5px;
+}
+.dd{
+  margin-bottom:550px;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Movies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/www/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":User:Home:">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":Movie:Movie:">Catalog</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" n:href=":Creator:Creator:">Creators</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="dd">
+<div class="float-start des">
+  <div class="me-auto p-2 bd-highlight">
+   {form addForm}
+    <div class="row mb-3">
+        {label name}
+    <div class="col-sm-10">
+        {input name}
+    </div>
+    </div>
+     <div class="row mb-3">
+        {label image}
+    <div class="col-sm-10">
+        {input image} 
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label year}
+    <div class="col-sm-10">
+        {input year}
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label length}
+    <div class="col-sm-10">
+        {input length}
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label genre}
+    <div class="col-sm-10">
+        {input genre}
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label creators_id}
+    <div class="col-sm-10">
+        {input creators_id}
+    </div>
+    </div>
+    <div class="col sm-3">
+        {input submit}
+    </div>
+    {/form}
+  </div>
+</div>
+  <div class="float-end t-design">
+   <h3>Movies list</h3>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">poster</th>
+       <th scope="col">name</th>
+        <th scope="col">year</th>
+         <th scope="col">length</th>
+          <th scope="col">genre</th>
+          <th scope="col">edit</th>
+          <th scope="col">delete</th>
+      </tr>
+  </thead>
+  <tbody>
+    {foreach $list as $item}
+	<tr>
+    <td>{$item->id}</td>
+    <td><img src="../../../../www/images/{$item->image}" alt="poster" width="65" height="90"></td>
+		<td>{$item->name}</td>
+		<td>{$item->year}</td>
+        <td>{$item->length} min.</td>
+		<td>{$item->genre}</td>
+        <td><a n:class="$presenter->isLinkCurrent() ? active" n:href="Movie:update $item->id">Update</a></td>
+        <td><a n:class="$presenter->isLinkCurrent() ? active" n:href="Movie:delete $item->id">Delete</a></td>
+	</tr>
+    {/foreach}
+    </tbody>
+    </table>
+
+  </div>
+  </div>
+  </div>
+
+{/block}

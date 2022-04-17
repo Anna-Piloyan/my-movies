@@ -1,0 +1,10 @@
+services:
+	- App\CreatorModule\Forms\CreatorForm
+	- App\CreatorModule\model\CreatorModel
+	- App\MovieModule\Forms\MovieForm
+	- App\MovieModule\model\MovieModel
+	- App\UserModule\Forms\FormFactory
+	- App\UserModule\model\UserModel
+	- App\Presenters\Model\AllMoviesModel
+	- App\Router\RouterFactory::createRouter
+	

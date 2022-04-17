@@ -1,0 +1,138 @@
+{block content}
+<style>
+.des{
+  margin-left:50px;
+  font-family: Times;
+  background-color: lightgreen;
+  border-radius: 7px;
+  width:280px;
+  padding:20px;
+  margin-top:15px;
+  
+}
+.t-des{
+  margin-left:20px;
+  font-family: Times;
+  background-color: lightgreen;
+  border-radius: 7px;
+  padding:20px;
+  margin:80px 100px 0px 0px;
+  width:950px;
+ 
+}
+input{
+  width:220px;
+  border-radius: 5px;
+}
+.dd{
+  margin-bottom:550px;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Movies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/www/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":User:Home:">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" n:href=":Movie:Movie:">Catalog</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" n:href=":Creator:Creator:">Creators</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="dd">
+<div class="float-start des">
+  <div class="me-auto p-2 bd-highlight">
+   {form addForm}
+    <div class="row mb-3">
+        {label creatorName}
+    <div class="col-sm-10">
+        {input creatorName}
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label surname}
+    <div class="col-sm-10">
+        {input surname} 
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label dateOfBirth}
+    <div class="col-sm-10">
+        {input dateOfBirth}
+    </div>
+    </div>
+    <div class="row mb-3">
+        {label country}
+    <div class="col-sm-10">
+        {input country}
+    </div>
+    </div>
+    <div class="col sm-3">
+        {input submit}
+    </div>
+    {/form}
+  </div>
+</div>
+  <div class="float-end t-des">
+  <h3>Creators list</h3>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+       <th scope="col">name</th>
+        <th scope="col">surname</th>
+         <th scope="col">date of birth</th>
+          <th scope="col">country</th>
+          <th scope="col">edit</th>
+          <th scope="col">delete</th>
+      </tr>
+  </thead>
+  <tbody>
+    {foreach $list as $item}
+	<tr>
+    <td>{$item->id}</td>
+		<td>{$item->creatorName}</td>
+		<td>{$item->surname}</td>
+        <td> {$item->dateOfBirth|date:'F j, Y'}</td>
+		<td>{$item->country}</td>
+        <td><a n:class="$presenter->isLinkCurrent() ? active" n:href="Creator:update $item->id">Update</a></td>
+        <td><a n:class="$presenter->isLinkCurrent() ? active" n:href="Creator:delete $item->id">Delete</a></td>
+	</tr>
+    {/foreach}
+    </tbody>
+    </table>
+
+  </div>
+</div>
+
+</div>
+
+<footer class="bg-dark text-center text-white">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">app-free-movies.com</a>
+  </div>
+ 
+</footer>
+
+
+
+{/block}

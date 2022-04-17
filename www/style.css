@@ -1,0 +1,9 @@
+body{  text-align: center;   }
+.div{
+    text-align: center;
+    background-color: rgb(230, 187, 171);
+    border: 2px solid lightcoral;
+    font-family: 'Times';
+}
+footer{ margin: -20px;}
+.img-main{height: 250;}
